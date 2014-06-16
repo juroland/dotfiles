@@ -1,0 +1,5 @@
+[url "https://"]
+	insteadOf = git://
+[user]
+	email = juroland@gmail.com
+	name = Julien Roland

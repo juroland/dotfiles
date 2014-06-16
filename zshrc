@@ -14,6 +14,7 @@ alias docs="cd $HOME/Documents"
 alias repos="cd $HOME/Repositories"
 alias desk="cd $HOME/Desktop"
 alias home="cd $HOME"
+alias open="xdg-open &>/dev/null"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

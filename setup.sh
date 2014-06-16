@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files="zshrc"
+files="zshrc gitconfig"
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)
 
