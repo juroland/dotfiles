@@ -1,11 +1,16 @@
 #!/bin/bash
 
-files="zshrc gitconfig"
+files=".zshrc .gitconfig"
+directories=".atom"
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)
 
-echo $dotfilesdir
-
 for file in $files; do
-  ln -si $dotfilesdir/$file ~/.$file
+  ln -si $dotfilesdir/$file ~/$file
+done
+
+for directory in $directories; do
+  for file in $(ls $dotfilesdir/$directory); do
+    ln -si $dotfilesdir/$directory/$file ~/$directory/$file
+  done
 done

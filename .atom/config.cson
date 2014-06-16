@@ -1,0 +1,21 @@
+'exception-reporting':
+  'userId': 'a536d44c-1cb9-489c-cad7-c50c7c4741ee'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': '4cd0bb81-922a-f7e6-0f0e-a5e79b993c18'
+'core': {}
+'recent-files':
+  'updated': false
+'autocomplete-clang':
+  'appendDefaultOutputOfAutocomplete': true
+  'preCompiledHeaders': {}
+  'std':
+    'c++': 'c++11'
+  'clangCommand': 'clang++'
+  'includePaths': [
+    '/usr/include/c++/4.9.0'
+    '/usr/include/c++/4.9.0/x86_64-unknown-linux-gnu'
+    '/usr/include'
+    '/usr/lib/clang/3.4.1/include/'
+  ]
