@@ -1,10 +1,17 @@
 'exception-reporting':
-  'userId': 'a536d44c-1cb9-489c-cad7-c50c7c4741ee'
+  'userId': '03539196-c7db-1b4a-2cc7-53b204a0cce4'
+'metrics':
+  'userId': '553a2abe-1f71-3ae4-8353-6fe62cc85974'
 'welcome':
   'showOnStartup': false
-'metrics':
-  'userId': '4cd0bb81-922a-f7e6-0f0e-a5e79b993c18'
-'core': {}
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'monokai'
+  ]
+  'disabledPackages': [
+    'vim-mode'
+  ]
 'recent-files':
   'updated': false
 'autocomplete-clang':
@@ -17,5 +24,15 @@
     '/usr/include/c++/4.9.0'
     '/usr/include/c++/4.9.0/x86_64-unknown-linux-gnu'
     '/usr/include'
-    '/usr/lib/clang/3.4.1/include/'
+    '/usr/lib/clang/3.4.2/include/'
+  ]
+'editor':
+  'tabLength': 4
+'fuzzy-finder':
+  'ignoredNames': [
+    '*.class'
+    '*.o'
+    '*.so'
+    '*.out'
+    '*.pch'
   ]

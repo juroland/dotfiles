@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=".zshrc .gitconfig"
+files=".zshrc .vimrc .gitconfig"
 directories=".atom"
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)

@@ -1,0 +1,2 @@
+'.editor':
+    'alt-j': 'vim-mode:activate-command-mode'
