@@ -1,2 +1,6 @@
 '.editor':
-    'alt-j': 'vim-mode:activate-command-mode'
+  'alt-j': 'vim-mode:activate-command-mode'
+
+'body':
+  'ctrl-tab': 'pane:show-next-item'
+  'ctrl-shift-tab': 'pane:show-previous-item'
