@@ -6,12 +6,13 @@
   'showOnStartup': false
 'core':
   'themes': [
-    'seti-ui'
-    'seti-syntax'
+    'atom-dark-ui'
+    'monokai'
   ]
   'disabledPackages': [
     'vim-mode'
     'linter-shellcheck'
+    'autocomplete-plus'
   ]
 'recent-files':
   'updated': false
@@ -30,6 +31,7 @@
 'editor':
   'tabLength': 4
   'softWrap': true
+  'showIndentGuide': true
 'fuzzy-finder':
   'ignoredNames': [
     '*.class'

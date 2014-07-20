@@ -79,4 +79,4 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-export PATH=$PATH:/home/julien/.gem/ruby/2.1.0/bin
+export PATH=$PATH:/home/julien/node_modules/.bin:/home/julien/.gem/ruby/2.1.0/bin
