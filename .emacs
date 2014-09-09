@@ -1,8 +1,12 @@
 ;; Based on https://github.com/sachac/.emacs.d
 
-(require 'use-package)
+(require 'package)                                                                                                      
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(package-initialize)
+
+(require 'use-package)
 
 ;; Sacha package install
 
@@ -165,6 +169,15 @@ If REPOSITORY is specified, use that."
     (key-chord-define-global "FF"     'find-file)
     (key-chord-define-global "JJ"     'sacha/switch-to-previous-buffer)))
 
+;; Shortcuts
+(global-set-key [f2] 'recentf-open-files)
+(global-set-key [f3] 'goto-line)
+(global-set-key [f4] 'find-file)
+(global-set-key [f5] 'switch-to-buffer)
+(global-set-key [f6] 'kill-current-buffer)
+(global-set-key [f11] 'save-buffer)
+(global-set-key [f12] 'buffer-menu)
+
 ;; Set the cursor color to "red"
 (set-cursor-color "red")
 
@@ -183,3 +196,68 @@ If REPOSITORY is specified, use that."
 (require 'multiple-cursors) 
 (global-unset-key (kbd "M-<down-mouse-1>")) 
 (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
+
+;; Recent files
+(require 'recentf)
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 15)
+(recentf-mode)
+
+;; Dired
+(require 'find-dired)
+(setq find-ls-option '("-print0 | xargs -0 ls -ld" . "-ld"))
+
+
+;; C++ ide
+(add-to-list 'load-path "~/build/rtags/src")
+(require 'rtags)
+;;(rtags-enable-standard-keybindings c-mode-base-map)
+
+(defun use-rtags (&optional useFileManager)
+  (and (rtags-executable-find "rc")
+       (cond ((not (gtags-get-rootpath)) t)
+             ((and (not (eq major-mode 'c++-mode))
+                   (not (eq major-mode 'c-mode))) (rtags-has-filemanager))
+             (useFileManager (rtags-has-filemanager))
+             (t (rtags-is-indexed)))))
+
+(defun tags-find-symbol-at-point (&optional prefix)
+  (interactive "P")
+  (if (and (not (rtags-find-symbol-at-point prefix)) rtags-last-request-not-indexed)
+      (gtags-find-tag)))
+(defun tags-find-references-at-point (&optional prefix)
+  (interactive "P")
+  (if (and (not (rtags-find-references-at-point prefix)) rtags-last-request-not-indexed)
+      (gtags-find-rtag)))
+(defun tags-find-symbol ()
+  (interactive)
+  (call-interactively (if (use-rtags) 'rtags-find-symbol 'gtags-find-symbol)))
+(defun tags-find-references ()
+  (interactive)
+  (call-interactively (if (use-rtags) 'rtags-find-references 'gtags-find-rtag)))
+(defun tags-find-file ()
+  (interactive)
+  (call-interactively (if (use-rtags t) 'rtags-find-file 'gtags-find-file)))
+(defun tags-imenu ()
+  (interactive)
+  (call-interactively (if (use-rtags t) 'rtags-imenu 'idomenu)))
+
+(define-key c-mode-base-map (kbd "M-.") (function tags-find-symbol-at-point))
+(define-key c-mode-base-map (kbd "M-,") (function tags-find-references-at-point))
+(define-key c-mode-base-map (kbd "M-;") (function tags-find-file))
+(define-key c-mode-base-map (kbd "C-.") (function tags-find-symbol))
+(define-key c-mode-base-map (kbd "C-,") (function tags-find-references))
+(define-key c-mode-base-map (kbd "C-<") (function rtags-find-virtuals-at-point))
+(define-key c-mode-base-map (kbd "M-i") (function tags-imenu))
+
+(define-key global-map (kbd "M-.") (function tags-find-symbol-at-point))
+(define-key global-map (kbd "M-,") (function tags-find-references-at-point))
+(define-key global-map (kbd "M-;") (function tags-find-file))
+(define-key global-map (kbd "C-.") (function tags-find-symbol))
+(define-key global-map (kbd "C-,") (function tags-find-references))
+(define-key global-map (kbd "C-<") (function rtags-find-virtuals-at-point))
+(define-key global-map (kbd "M-i") (function tags-imenu))
