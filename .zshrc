@@ -81,3 +81,18 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 export PATH=$PATH:/opt/intel/composer_xe_2015.0.090/bin:/home/juroland/node_modules/.bin:/home/juroland/.gem/ruby/2.1.0/bin
+
+export PATH=$HOME/bin:$HOME/Build/lib_latex/quiz:$PATH
+export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
+
+export TEXINPUTS="$TEXINPUTS:/home/julien/Build/lib_latex"
+
+
+export GUROBI_HOME="/home/julien/Build/gurobi600/linux64"
+export PATH="${PATH}:${GUROBI_HOME}/bin"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+
+export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/julien/Build/clang-ctags"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
+
+export GOPATH=~/golang
