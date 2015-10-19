@@ -7,6 +7,23 @@
 ;; backup
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
+;; Change "yes or no" to "y or n"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Spell
+(require 'flyspell)
+(flyspell-mode +1)
+
+;; Windows configuration
+(when window-system
+  (tooltip-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1))
+
+;; Indent
+(setq-default c-basic-offset 4)
+
 ;; Helm - interactive completion
 ;; based on http://tuhdo.github.io/helm-intro.html
 (require 'helm)
@@ -24,6 +41,12 @@
 (define-key company-mode-map [(control tab)] 'company-complete)
 (define-key company-mode-map [(control return)] 'company-complete)
 (global-company-mode)
+
+;; refactoring
+(require 'srefactor)
+(semantic-mode 1)
+(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
+(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
 
 ;; rtags
 (require 'rtags)
@@ -86,6 +109,27 @@
 (define-key global-map (kbd "C-,") (function tags-find-references))
 (define-key global-map (kbd "C-<") (function rtags-find-virtuals-at-point))
 (define-key global-map (kbd "M-i") (function tags-imenu))
+
+;; Original idea from
+;; http://www.opensubscriber.com/message/emacs-devel@gnu.org/10971693.html
+(defun comment-dwim-line (&optional arg)
+  "Replacement for the comment-dwim command.
+If no region is selected and current line is not blank and we are not at the end of the line,
+then comment current line.
+Replaces default behaviour of comment-dwim, when it inserts comment at the end of the line."
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+    (comment-dwim arg)))
+
+(global-set-key (kbd "C-/") 'comment-dwim-line)
+
+;; Python
+
+(package-initialize)
+(elpy-enable)
+
 
 ;; ;; Based on https://github.com/sachac/.emacs.d
 
