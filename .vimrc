@@ -20,8 +20,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Molokai plugin
-" let g:molokai_original=1
-" colorscheme molokai
+let g:molokai_original=1
+colorscheme molokai
 
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
