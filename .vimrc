@@ -12,6 +12,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/molokai'
 Plugin 'sjl/Gundo.vim'
 Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -21,28 +23,13 @@ filetype plugin indent on    " required
 let g:molokai_original=1
 colorscheme molokai
 
+syntax enable           " enable syntax processing
+
 let mapleader = " "
 
+" Enable nice porweline symbols
 let g:airline_powerline_fonts = 1
 
-"if !exists('g:airline_symbols')
-"        let g:airline_symbols = {}
-"endif
-
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-
-syntax enable           " enable syntax processing
 
 set laststatus=2        " displaying status line always
 
