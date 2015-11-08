@@ -2,8 +2,7 @@
 	"segments": {
 		"right": [
 			{
-				"function": "powerline.segments.common.sys.uptime",
-				"priority": 50
+                    "function": "powerline.segments.common.vcs.branch"
 			},
 			{
 				"function": "powerline.segments.common.sys.system_load",
@@ -16,7 +15,7 @@
 				"function": "powerline.segments.common.time.date",
 				"name": "time",
 				"args": {
-					"format": "%H-%M",
+					"format": "%H:%M",
 					"istime": true
 				}
 			},
