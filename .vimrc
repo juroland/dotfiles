@@ -11,7 +11,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/molokai'
 Plugin 'sjl/Gundo.vim'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 
@@ -20,8 +20,12 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Molokai plugin
-let g:molokai_original=1
-colorscheme molokai
+" let g:molokai_original=1
+" colorscheme molokai
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 syntax enable           " enable syntax processing
 

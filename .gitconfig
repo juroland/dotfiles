@@ -1,7 +1,7 @@
 [user]
 	email = juroland@gmail.com
 	name = Julien Roland
-[url "https://github"]
+[url "https://juroland@github"]
 	insteadOf = git://github
 [push]
 	default = matching

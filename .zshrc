@@ -61,7 +61,8 @@ plugins=(git common-aliases dirhistory)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+PROMPT="%#"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/mkl/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/compiler/lib/intel64
@@ -94,7 +95,9 @@ export GUROBI_HOME="/home/julien/Build/gurobi600/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 
-export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/julien/Build/clang-ctags"
+export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/julien/Build/clang-ctags:/home/julien/.local/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
 
 export GOPATH=~/golang
+
+#. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
