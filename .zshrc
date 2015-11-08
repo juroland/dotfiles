@@ -7,6 +7,8 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -57,7 +59,7 @@ alias df="df -h"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git common-aliases dirhistory)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 

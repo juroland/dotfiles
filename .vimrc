@@ -11,7 +11,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/molokai'
 Plugin 'sjl/Gundo.vim'
-"Plugin 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -23,7 +23,28 @@ colorscheme molokai
 
 let mapleader = " "
 
+let g:airline_powerline_fonts = 1
+
+"if !exists('g:airline_symbols')
+"        let g:airline_symbols = {}
+"endif
+
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+
 syntax enable           " enable syntax processing
+
+set laststatus=2        " displaying status line always
 
 set tabstop=4           " number of visual spaces per TAB
 set softtabstop=4       " number of spaces in tab when editing
@@ -32,7 +53,7 @@ set expandtab           " tabs are spaces
 set number              " show line numbers
 set numberwidth=5
 
-set showcmd             " show command in bottom bar
+"set showcmd             " show command in bottom bar
 
 set cursorline          " highlight current line
 
@@ -62,14 +83,14 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+        " Use Ag over Grep
+        set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+        let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
+        " ag is fast enough that CtrlP doesn't need to cache
+        let g:ctrlp_use_caching = 0
 endif
 
 " CtrlP settings
@@ -105,15 +126,15 @@ set diffopt+=vertical
 
 augroup markdown
 
-    " remove previous autocmds
-    autocmd!
+        " remove previous autocmds
+        autocmd!
 
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
+        autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-    " Enable spellchecking for Markdown
-    autocmd FileType markdown setlocal spell
+        " Enable spellchecking for Markdown
+        autocmd FileType markdown setlocal spell
 
-    " Automatically wrap at 80 characters for Markdown
-    autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+        " Automatically wrap at 80 characters for Markdown
+        autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 augroup END
