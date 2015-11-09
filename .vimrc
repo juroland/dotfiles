@@ -14,9 +14,11 @@ Plugin 'sjl/Gundo.vim'
 "Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
 
 " Molokai plugin
@@ -34,12 +36,15 @@ let mapleader = " "
 " Enable nice porweline symbols
 let g:airline_powerline_fonts = 1
 
-
 set laststatus=2        " displaying status line always
 
 set tabstop=4           " number of visual spaces per TAB
 set softtabstop=4       " number of spaces in tab when editing
+set shiftwidth=4        " identation size
 set expandtab           " tabs are spaces
+
+set autoindent
+set smartindent
 
 set number              " show line numbers
 set numberwidth=5
@@ -53,6 +58,11 @@ filetype indent on      " load filetype-specific indent files
 set wildmenu            " visual autocomplete for command menu
 
 set showmatch           " highlight matching [{()}]
+set matchtime=2
+
+set ignorecase          " case-insensitive when searching
+set smartcase           " ignore case if search pattern is all lowercase,
+                        "    case-sensitive otherwise
 
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
@@ -69,19 +79,21 @@ inoremap jk <esc>
 " Graph your Vim undo tree in style.
 nnoremap <F5> :GundoToggle<CR>
 
+nmap <F8> :TagbarToggle<CR>
+
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-        " Use Ag over Grep
-        set grepprg=ag\ --nogroup\ --nocolor
+    " Use Ag over Grep
+    set grepprg=ag\ --nogroup\ --nocolor
 
-        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-        let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-        " ag is fast enough that CtrlP doesn't need to cache
-        let g:ctrlp_use_caching = 0
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
 endif
 
 " CtrlP settings
@@ -117,15 +129,17 @@ set diffopt+=vertical
 
 augroup markdown
 
-        " remove previous autocmds
-        autocmd!
+    " remove previous autocmds
+    autocmd!
 
-        autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-        " Enable spellchecking for Markdown
-        autocmd FileType markdown setlocal spell
+    " Enable spellchecking for Markdown
+    autocmd FileType markdown setlocal spell
 
-        " Automatically wrap at 80 characters for Markdown
-        autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+    " Automatically wrap at 80 characters for Markdown
+    autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 augroup END
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
