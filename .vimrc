@@ -15,6 +15,9 @@ Plugin 'sjl/Gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
+"Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,6 +62,9 @@ set wildmenu            " visual autocomplete for command menu
 
 set showmatch           " highlight matching [{()}]
 set matchtime=2
+
+set autochdir           " the working directory is always the same as the file
+                        "    you are editing
 
 set ignorecase          " case-insensitive when searching
 set smartcase           " ignore case if search pattern is all lowercase,
