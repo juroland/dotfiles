@@ -18,6 +18,12 @@ Plugin 'majutsushi/tagbar'
 "Plugin 'vim-pandoc/vim-pandoc'
 "Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'lervag/vimtex'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -78,6 +84,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
+set foldmethod=indent
+" Enable folding with the spacebar
+nnoremap <space> za
 
 " jk is escape
 inoremap jk <esc>
@@ -148,4 +157,29 @@ augroup markdown
 
 augroup END
 
+augroup tex
+    autocmd!
+    " Enable spellchecking for tex
+    autocmd FileType tex setlocal spell
+    " autocmd FileType tex setlocal spell spelllang=fr
+augroup END
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+" ensures that the autocomplete window goes away when you’re done with it
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Python
+au BufNewFile,BufRead *.py
+            \ set tabstop=4       |
+            \ set softtabstop=4   |
+            \ set shiftwidth=4    |
+            \ set textwidth=79    |
+            \ set expandtab       |
+            \ set autoindent      |
+            \ set fileformat=unix
+
+let python_highlight_all=1
+syntax on
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
