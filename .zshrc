@@ -65,6 +65,7 @@ source $ZSH/oh-my-zsh.sh
 # PROMPT="%# "
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/mkl/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/compiler/lib/intel64
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -99,5 +100,7 @@ export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/j
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
 
 export GOPATH=~/golang
+
+export TERM=xterm-256color
 
 #. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh

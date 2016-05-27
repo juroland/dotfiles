@@ -47,10 +47,11 @@ let g:airline_powerline_fonts = 1
 
 set laststatus=2        " displaying status line always
 
-set tabstop=4           " number of visual spaces per TAB
-set softtabstop=4       " number of spaces in tab when editing
-set shiftwidth=4        " identation size
+set tabstop=8           " number of visual spaces per TAB
+set softtabstop=8       " number of spaces in tab when editing
+set shiftwidth=8        " identation size
 set expandtab           " tabs are spaces
+set cino=g0             " do not indent labels such as public and private
 
 set autoindent
 set smartindent
@@ -94,7 +95,8 @@ inoremap jk <esc>
 " Graph your Vim undo tree in style.
 nnoremap <F5> :GundoToggle<CR>
 
-nmap <F8> :TagbarToggle<CR>
+"nmap <F8> :TagbarToggle<CR>
+:map <F8> :vertical wincmd f<CR>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -119,8 +121,8 @@ let g:ctrlp_working_path_mode = 0
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Make it obvious where 80 characters is
-set textwidth=80
+" Make it obvious where 100 characters is
+set textwidth=100
 set colorcolumn=+1
 
 " Get off my lawn
@@ -152,8 +154,8 @@ augroup markdown
     " Enable spellchecking for Markdown
     autocmd FileType markdown setlocal spell
 
-    " Automatically wrap at 80 characters for Markdown
-    autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+    " Automatically wrap at 100 characters for Markdown
+    autocmd BufRead,BufNewFile *.md setlocal textwidth=100
 
 augroup END
 
