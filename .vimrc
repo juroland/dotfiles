@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set hidden
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,6 +26,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -97,7 +99,11 @@ inoremap jk <esc>
 nnoremap <F5> :GundoToggle<CR>
 
 "nmap <F8> :TagbarToggle<CR>
-:map <F8> :vertical wincmd f<CR>
+":map <F8> :vertical wincmd f<CR>
+
+nnoremap <F6> :tabe
+nnoremap <F7> :tabp<CR>
+nnoremap <F8> :tabn<CR>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
