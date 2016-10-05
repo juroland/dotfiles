@@ -99,7 +99,8 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/julien/Build/clang-ctags:/home/julien/.local/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
 
-export GOPATH=~/golang
+export GOPATH=~/Repositories/gowork
+export PATH=$PATH:$GOPATH/bin
 
 export TERM=xterm-256color
 
