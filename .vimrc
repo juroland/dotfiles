@@ -144,6 +144,7 @@ nnoremap <C-l> <C-w>l
 
 " Always use vertical diffs
 set diffopt+=vertical
+" set diffopt+=horizontal
 
 augroup markdown
 
@@ -167,9 +168,12 @@ augroup tex
     " autocmd FileType tex setlocal spell spelllang=fr
 augroup END
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 " ensures that the autocomplete window goes away when you’re done with it
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion = 1
+" do not ask about loading
+let g:ycm_confirm_extra_conf = 0
+" go to
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Python
@@ -186,3 +190,20 @@ let python_highlight_all=1
 syntax on
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] " ignore files in NERDTree
+
+" change the current directory
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" clang format
+map <C-F> :pyfile /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
+imap <C-F> <c-o>:pyfile /usr/share/vim/addons/syntax/clang-format-3.8.py<cr>
+
+" tabs
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
