@@ -65,6 +65,8 @@ set cino=g0                                      " do not indent labels such as 
 
 set wildmenu                                     " visual autocomplete for command menu
 
+set autochdir                                    " the working directory is always the same
+                                                 " as the file you are editing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " key mapping
@@ -72,6 +74,20 @@ set wildmenu                                     " visual autocomplete for comma
 let mapleader = ","
 
 nnoremap <leader><space> :nohlsearch<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" plugins settings
+
+" ctrl-p
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
+
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>f :CtrlPMRU<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -94,12 +110,6 @@ set numberwidth=5
 set cursorline          " highlight current line
 
 filetype indent on      " load filetype-specific indent files
-
-
-
-set autochdir           " the working directory is always the same as the file
-                        "    you are editing
-
 
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
@@ -136,11 +146,6 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_working_path_mode = 'ra'
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
