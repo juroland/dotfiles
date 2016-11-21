@@ -87,7 +87,7 @@ export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
 export PATH=$PATH:/opt/intel/composer_xe_2015.0.090/bin:/home/juroland/node_modules/.bin:/home/juroland/.gem/ruby/2.1.0/bin
 
 export PATH=$HOME/bin:$HOME/Build/lib_latex/quiz:$PATH
-export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
 
 export TEXINPUTS="$TEXINPUTS:/home/julien/Build/lib_latex"
 
@@ -105,3 +105,9 @@ export PATH=$PATH:$GOPATH/bin
 export TERM=xterm-256color
 
 #. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# added by Anaconda3 4.1.1 installer
+# export PATH="/home/julien/anaconda3/bin:$PATH"
+#
+
+bindkey '^I' complete-word
