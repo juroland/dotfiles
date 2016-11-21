@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=".tmux.conf .zshrc .vimrc .gitconfig .emacs .idevimrc"
+files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .idevimrc"
 directories=".atom"
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)

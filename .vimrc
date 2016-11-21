@@ -1,8 +1,7 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set hidden
+" vundle
 
-" set the runtime path to include Vundle and initialize
+filetype off                                     " required
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -17,8 +16,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
-"Plugin 'vim-pandoc/vim-pandoc'
-"Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'lervag/vimtex'
 Plugin 'vim-scripts/indentpython.vim'
@@ -26,40 +23,86 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'fatih/vim-go'
+Plugin 'godlygeek/tabular'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call vundle#end()                                " required
+filetype plugin indent on                        " required
 
-filetype plugin indent on    " required
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" settings
+
+set number                                       " show line numbers
+set backspace=indent,eol,start
+
+set noswapfile
+set nobackup
+set nowritebackup
+set autowrite
+set autoread
+set hidden
+set encoding=utf-8
+
+set ignorecase                                   " case-insensitive when searching...
+set smartcase                                    " ...unless it contains upper case characters.
+set incsearch                                    " search as characters are entered
+set hlsearch                                     " highlight matches
+set noshowmatch                                  " do not highlight matching [{()}]
+
+set wrap
+set textwidth=100
+set colorcolumn=+1                               " highlight column 101
+set formatoptions=roqn1j
+
+set autoindent
+set smartindent
+set smarttab
+set expandtab                                    " tabs are spaces
+set tabstop=8                                    " number of visual spaces per TAB
+set softtabstop=8                                " number of spaces in tab when editing
+set shiftwidth=8                                 " identation size
+set cino=g0                                      " do not indent labels such as public and private
+
+set wildmenu                                     " visual autocomplete for command menu
+
+set autochdir                                    " the working directory is always the same
+                                                 " as the file you are editing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" key mapping
+
+let mapleader = ","
+
+nnoremap <leader><space> :nohlsearch<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" plugins settings
+
+" ctrl-p
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
+
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>f :CtrlPMRU<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Molokai plugin
 let g:molokai_original=1
 colorscheme molokai
 
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
-
 syntax enable           " enable syntax processing
 
-let mapleader = " "
 
 " Enable nice porweline symbols
 let g:airline_powerline_fonts = 1
 
 set laststatus=2        " displaying status line always
 
-set tabstop=8           " number of visual spaces per TAB
-set softtabstop=8       " number of spaces in tab when editing
-set shiftwidth=8        " identation size
-set expandtab           " tabs are spaces
-set cino=g0             " do not indent labels such as public and private
-
-set autoindent
-set smartindent
-
-set number              " show line numbers
 set numberwidth=5
 
 "set showcmd             " show command in bottom bar
@@ -67,23 +110,6 @@ set numberwidth=5
 set cursorline          " highlight current line
 
 filetype indent on      " load filetype-specific indent files
-
-set wildmenu            " visual autocomplete for command menu
-
-set showmatch           " highlight matching [{()}]
-set matchtime=2
-
-set autochdir           " the working directory is always the same as the file
-                        "    you are editing
-
-set ignorecase          " case-insensitive when searching
-set smartcase           " ignore case if search pattern is all lowercase,
-                        "    case-sensitive otherwise
-
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-" turn off search highlight with ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
 
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
@@ -120,18 +146,10 @@ if executable('ag')
     let g:ctrlp_use_caching = 0
 endif
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_working_path_mode = 'ra'
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" Make it obvious where 100 characters is
-set textwidth=100
-set colorcolumn=+1
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
