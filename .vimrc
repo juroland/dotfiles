@@ -30,6 +30,14 @@ filetype plugin indent on                        " required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" tmux
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
 " settings
 
 set number                                       " show line numbers
@@ -42,6 +50,7 @@ set autowrite
 set autoread
 set hidden
 set encoding=utf-8
+set relativenumber
 
 set ignorecase                                   " case-insensitive when searching...
 set smartcase                                    " ...unless it contains upper case characters.
@@ -58,9 +67,9 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab                                    " tabs are spaces
-set tabstop=8                                    " number of visual spaces per TAB
-set softtabstop=8                                " number of spaces in tab when editing
-set shiftwidth=8                                 " identation size
+set tabstop=4                                    " number of visual spaces per TAB
+set softtabstop=4                                " number of spaces in tab when editing
+set shiftwidth=4                                 " identation size
 set cino=g0                                      " do not indent labels such as public and private
 
 set wildmenu                                     " visual autocomplete for command menu
@@ -88,6 +97,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMRU<CR>
+nmap <leader>w :CtrlPCurWD<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -193,7 +203,7 @@ augroup tex
     " autocmd FileType tex setlocal spell spelllang=fr
 augroup END
 
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 " ensures that the autocomplete window goes away when you’re done with it
 let g:ycm_autoclose_preview_window_after_completion = 1
 " do not ask about loading
