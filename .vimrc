@@ -98,6 +98,7 @@ let g:ctrlp_working_path_mode = 'ra'
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMRU<CR>
 nmap <leader>w :CtrlPCurWD<CR>
+nmap <leader>r :CtrlPTag<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
