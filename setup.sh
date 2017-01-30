@@ -1,16 +1,18 @@
 #!/bin/bash
 
-files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .idevimrc"
+files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .idevimrc .gdbinit"
 directories=".atom"
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)
 vundle_dir=~/.vim/bundle/Vundle.vim
 
 function setup_fonts {
-  git clone https://github.com/powerline/fonts /tmp/fonts
-  mkdir -p ~/.fonts
-  mv /tmp/fonts/SourceCodePro/*.otf ~/.fonts
-  fc-cache -vf ~/.fonts/
+    if [ ! -d ~/.fonts ]; then
+        git clone https://github.com/powerline/fonts /tmp/fonts
+        mkdir -p ~/.fonts
+        mv /tmp/fonts/SourceCodePro/*.otf ~/.fonts
+        fc-cache -vf ~/.fonts/
+    fi
 }
 
 for file in $files; do
