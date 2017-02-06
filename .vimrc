@@ -25,6 +25,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'godlygeek/tabular'
 Plugin 'fatih/vim-go'
+Bundle 'christoomey/vim-tmux-navigator'
 
 call vundle#end()                                " required
 filetype plugin indent on                        " required
@@ -255,4 +256,3 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
-
