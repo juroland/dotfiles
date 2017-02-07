@@ -71,7 +71,8 @@ set expandtab                                    " tabs are spaces
 set tabstop=4                                    " number of visual spaces per TAB
 set softtabstop=4                                " number of spaces in tab when editing
 set shiftwidth=4                                 " identation size
-set cino=g0                                      " do not indent labels such as public and private
+set cindent
+set cino=g0,N-s,b1,t0,(0,W4                      " see :h cinoptions-values
 
 set wildmenu                                     " visual autocomplete for command menu
 
