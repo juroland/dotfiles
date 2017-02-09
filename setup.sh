@@ -1,7 +1,7 @@
 #!/bin/bash
 
 files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .idevimrc .gdbinit"
-directories=".atom"
+directories=""
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)
 vundle_dir=~/.vim/bundle/Vundle.vim
