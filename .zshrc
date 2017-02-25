@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 
 # PROMPT="%# "
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/go/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/mkl/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/compiler/lib/intel64
 # export MANPATH="/usr/local/man:$MANPATH"
