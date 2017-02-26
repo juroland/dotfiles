@@ -87,6 +87,11 @@ set autochdir                                    " the working directory is alwa
 
 let mapleader = ","
 
+" Quickfix
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+nnoremap <leader>a :cclose<CR>
+
 nnoremap <leader><space> :nohlsearch<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,6 +264,13 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+augroup go
+    autocmd!
+
+    autocmd FileType go nmap <leader>d :GoDecls<cr>
+    autocmd FileType go nmap <leader>l :GoMetaLinter<cr>
+augroup END
 
 " ultisnips
 
