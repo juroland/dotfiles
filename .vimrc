@@ -44,6 +44,8 @@ endif
 
 " settings
 
+set timeoutlen=1000 ttimeoutlen=0
+
 set number                                       " show line numbers
 set backspace=indent,eol,start
 
@@ -87,12 +89,16 @@ set autochdir                                    " the working directory is alwa
 
 let mapleader = ","
 
-" Quickfix
+" quickfix
 map <C-n> :cn<CR>
 map <C-m> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
 nnoremap <leader><space> :nohlsearch<CR>
+
+nnoremap <leader>w :w!<cr>
+
+nnoremap <silent> <leader>q :q!<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -107,7 +113,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>f :CtrlPMRU<CR>
-nmap <leader>w :CtrlPCurWD<CR>
+nmap <leader>. :CtrlPCurWD<CR>
 nmap <leader>r :CtrlPTag<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +123,6 @@ let g:molokai_original=1
 colorscheme molokai
 
 syntax enable           " enable syntax processing
-
 
 " Enable nice porweline symbols
 let g:airline_powerline_fonts = 1
@@ -270,6 +275,7 @@ augroup go
 
     autocmd FileType go nmap <leader>d :GoDecls<cr>
     autocmd FileType go nmap <leader>l :GoMetaLinter<cr>
+    autocmd FileType go nmap <leader>r :GoRun<cr>
 augroup END
 
 " ultisnips
