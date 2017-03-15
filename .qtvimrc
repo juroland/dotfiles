@@ -1,0 +1,48 @@
+set timeoutlen=1000 ttimeoutlen=0
+
+set number                                       " show line numbers
+set backspace=indent,eol,start
+
+set noswapfile
+set nobackup
+set nowritebackup
+set autowrite
+set autoread
+set hidden
+set encoding=utf-8
+set relativenumber
+
+set ignorecase                                   " case-insensitive when searching...
+set smartcase                                    " ...unless it contains upper case characters.
+set incsearch                                    " search as characters are entered
+set hlsearch                                     " highlight matches
+set noshowmatch                                  " do not highlight matching [{()}]
+
+set wrap
+set textwidth=100
+set colorcolumn=+1                               " highlight column 101
+set formatoptions=roqn1j
+
+set autoindent
+set smartindent
+set smarttab
+set expandtab                                    " tabs are spaces
+set tabstop=4                                    " number of visual spaces per TAB
+set softtabstop=4                                " number of spaces in tab when editing
+set shiftwidth=4                                 " identation size
+set cindent
+set cino=g0,N-s,b1,t0,(0,W4                      " see :h cinoptions-values
+
+set wildmenu                                     " visual autocomplete for command menu
+
+set autochdir                                    " the working directory is always the same
+                                                 " as the file you are editing
+                                                 "
+nnoremap ,<space> :nohlsearch<CR>
+
+nnoremap ,w :w!<cr>
+
+nnoremap <silent> ,q :q!<CR>
+
+" jk is escape
+inoremap jk <esc>
