@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .idevimrc .gdbinit .qtvimrc"
+files=".tmux.conf .bash_aliases .inputrc .zshrc .vimrc .gitconfig .emacs .gdbinit .qtvimrc"
 directories=""
 scriptname=$(readlink -f $0)
 dotfilesdir=$(dirname $scriptname)
@@ -18,6 +18,8 @@ function setup_fonts {
 for file in $files; do
   ln -si $dotfilesdir/$file ~/$file
 done
+
+ln -si $dotfilesdir/.qtvimrc ~/.ideavimrc
 
 for directory in $directories; do
   for file in $(ls $dotfilesdir/$directory); do
