@@ -12,3 +12,5 @@
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
 	tool = fugitive
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit
