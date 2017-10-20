@@ -7,7 +7,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/molokai'
 Plugin 'sjl/Gundo.vim'
@@ -28,6 +28,8 @@ Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()                                " required
 filetype plugin indent on                        " required
@@ -111,10 +113,10 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_working_path_mode = 'ra'
 
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>f :CtrlPMRU<CR>
-nmap <leader>. :CtrlPCurWD<CR>
-nmap <leader>r :CtrlPTag<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>f :Files ~/<CR>
+nmap <leader>. :Files<CR>
+nmap <leader>r :Tags<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -219,6 +221,9 @@ augroup tex
     " autocmd FileType tex setlocal spell spelllang=fr
 augroup END
 
+let g:vimtex_disable_version_warning = 1
+let g:vimtex_echo_ignore_wait = 1
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
 " ensures that the autocomplete window goes away when you’re done with it
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -268,7 +273,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:go_auto_type_info = 1
+"let g:go_auto_type_info = 1
 
 let g:go_fmt_command = "goimports"
 
@@ -278,6 +283,7 @@ augroup go
     autocmd FileType go nmap <leader>d :GoDecls<cr>
     autocmd FileType go nmap <leader>l :GoMetaLinter<cr>
     autocmd FileType go nmap <leader>r :GoRun<cr>
+    autocmd FileType go set list listchars=tab:\ \ ,trail:·,nbsp:·
 augroup END
 
 " ultisnips
