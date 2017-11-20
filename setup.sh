@@ -21,6 +21,10 @@ done
 
 ln -si $dotfilesdir/.qtvimrc ~/.ideavimrc
 
+for file in `ls $dotfilesdir/vscode/`; do
+  ln -si $dotfilesdir/vscode/$file ~/.config/Code/User/$file
+done
+
 for directory in $directories; do
   for file in $(ls $dotfilesdir/$directory); do
     ln -si $dotfilesdir/$directory/$file ~/$directory/$file
