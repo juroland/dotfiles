@@ -42,5 +42,13 @@
                 }
             ]
         }
-    ]
+    ],
+    "C_Cpp.intelliSenseEngine": "Default",
+    "vim.disableAnnoyingNeovimMessage": true,
+    "keyboard.dispatch": "keyCode",
+    "vim.disableExtension": false,
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "gitlens.blame.line.enabled": false,
+    "gitlens.statusBar.enabled": false
 }
