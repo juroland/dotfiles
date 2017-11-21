@@ -50,5 +50,7 @@
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     "gitlens.blame.line.enabled": false,
-    "gitlens.statusBar.enabled": false
+    "gitlens.statusBar.enabled": false,
+    "python.formatting.formatOnSave": true,
+    "python.formatting.provider": "yapf"
 }
