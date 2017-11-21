@@ -11,19 +11,19 @@
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
     {
-        "key": "ctrl+shift+j",
+        "key": "ctrl+alt+j",
         "command": "workbench.action.terminal.focus"
     },
     {
-        "key": "ctrl+shift+k",
+        "key": "ctrl+alt+k",
         "command": "workbench.action.focusActiveEditorGroup"
     },
     {
-        "key": "ctrl+shift+h",
+        "key": "ctrl+alt+h",
         "command": "workbench.action.focusPreviousGroup"
     },
     {
-        "key": "ctrl+shift+l",
+        "key": "ctrl+alt+l",
         "command": "workbench.action.focusNextGroup"
     }
 ]
