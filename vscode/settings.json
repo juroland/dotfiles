@@ -45,12 +45,16 @@
     ],
     "C_Cpp.intelliSenseEngine": "Default",
     "vim.disableAnnoyingNeovimMessage": true,
-    "keyboard.dispatch": "keyCode",
     "vim.disableExtension": false,
+    "vim.textwidth": 100,
+    "keyboard.dispatch": "keyCode",
     "editor.minimap.enabled": false,
     "window.zoomLevel": 0,
     "gitlens.blame.line.enabled": false,
     "gitlens.statusBar.enabled": false,
     "python.formatting.formatOnSave": true,
-    "python.formatting.provider": "yapf"
+    "python.formatting.provider": "yapf",
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 100,
+    "workbench.panel.location": "bottom"
 }
