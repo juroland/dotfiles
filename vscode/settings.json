@@ -43,15 +43,18 @@
             ]
         },
         {
-            "before":["<leader>"],
-            "after":["<space>"],
+            "before": [
+                "<leader>",
+                "<space>"
+            ],
+            "after": [],
             "commands": [
                 {
                     "command": ":nohl",
                     "args": []
                 }
             ]
-        },
+        }
     ],
     "C_Cpp.intelliSenseEngine": "Default",
     "vim.disableExtension": false,
