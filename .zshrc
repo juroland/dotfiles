@@ -3,8 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Optionally, if you set this to "random", it'll load a random theme each time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
 # Example aliases
@@ -17,6 +16,8 @@ alias home="cd $HOME"
 
 alias open="xdg-open &>/dev/null"
 alias df="df -h"
+
+unsetopt share_history
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -63,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 
 # PROMPT="%# "
 
-export PATH=$HOME/bin:/usr/local/go/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/mkl/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/compiler/lib/intel64
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -99,14 +100,16 @@ export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/j
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
 
 export GOPATH=~/Repositories/gowork
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 export TERM=xterm-256color
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
 
 #. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # added by Anaconda3 4.1.1 installer
-# export PATH="/home/julien/anaconda3/bin:$PATH"
+export PATH="$PATH:/home/julien/anaconda3/bin"
 #
 
 bindkey '^I' complete-word
@@ -114,3 +117,4 @@ bindkey '^I' complete-word
 setopt noincappendhistory
 setopt nosharehistory
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

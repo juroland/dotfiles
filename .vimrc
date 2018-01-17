@@ -17,7 +17,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'lervag/vimtex'
+"Plugin 'lervag/vimtex'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
@@ -28,8 +28,10 @@ Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mileszs/ack.vim' " requires silversearcher-ag
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()                                " required
 filetype plugin indent on                        " required
@@ -92,7 +94,7 @@ set autochdir                                    " the working directory is alwa
 let mapleader = ","
 
 " quickfix
-map <C-n> :cn<CR>
+map <C-n> :cn<CR
 map <C-m> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
@@ -291,3 +293,6 @@ augroup END
 let g:UltiSnipsExpandTrigger="<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger="<leader>p<tab>"
+
+" ack with ag
+let g:ackprg = 'ag --nogroup --nocolor --column'

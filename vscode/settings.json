@@ -41,12 +41,22 @@
                     "args": []
                 }
             ]
-        }
+        },
+        {
+            "before":["<leader>"],
+            "after":["<space>"],
+            "commands": [
+                {
+                    "command": ":nohl",
+                    "args": []
+                }
+            ]
+        },
     ],
     "C_Cpp.intelliSenseEngine": "Default",
-    "vim.disableAnnoyingNeovimMessage": true,
     "vim.disableExtension": false,
     "vim.textwidth": 100,
+    "vim.hlsearch": true,
     "keyboard.dispatch": "keyCode",
     "window.zoomLevel": 0,
     "gitlens.blame.line.enabled": false,

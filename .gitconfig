@@ -13,4 +13,4 @@
 [merge]
 	tool = fugitive
 [alias]
-    tree = log --graph --decorate --pretty=oneline --abbrev-commit
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --branches=*
