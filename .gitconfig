@@ -1,5 +1,6 @@
 [user]
 	name = Julien Roland
+	email = juroland@gmail.com
 [url "https://juroland@github"]
 	insteadOf = git://github
 [push]
@@ -8,6 +9,7 @@
 	sslverify = false
 [core]
 	autocrlf = input
+	excludesfile = $HOME/.gitignore_global
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
