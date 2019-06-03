@@ -118,3 +118,5 @@ setopt noincappendhistory
 setopt nosharehistory
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.tools

@@ -1,0 +1,5 @@
+function influx-epoch()
+{
+    date -d @${1: : -9}
+}
+
