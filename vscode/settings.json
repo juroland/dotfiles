@@ -100,4 +100,7 @@
     "gitlens.views.lineHistory.enabled": true,
     "terminal.integrated.fontFamily": "Liberation Mono",
     "cSpell.language": "en,fr",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    }
 }
