@@ -95,3 +95,7 @@ setopt nosharehistory
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.tools
+
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+PROJECT_HOME=~/Repositories
+source ~/.local/bin/virtualenvwrapper.sh > /dev/null
