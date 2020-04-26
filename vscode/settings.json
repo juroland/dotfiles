@@ -70,6 +70,7 @@
     "python.formatting.provider": "black",
     "python.jediEnabled": false,
     "python.venvPath": "~/.virtualenvs",
+    "autoDocstring.docstringFormat": "google",
     "editor.minimap.enabled": true,
     "editor.rulers": [
         88
