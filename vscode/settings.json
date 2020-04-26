@@ -97,5 +97,6 @@
     "gitlens.historyExplorer.enabled": true,
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
+    "terminal.integrated.fontFamily": "Liberation Mono",
     "cSpell.language": "en,fr",
 }
