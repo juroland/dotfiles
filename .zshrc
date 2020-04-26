@@ -66,25 +66,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/mkl/lib:/opt/intel/composer_xe_2015.0.090/mkl/include:/opt/intel/composer_xe_2015.0.090/compiler/lib/intel64
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-export PATH=$PATH:/opt/intel/composer_xe_2015.0.090/bin:/home/juroland/node_modules/.bin:/home/juroland/.gem/ruby/2.1.0/bin
 
 export PATH=$HOME/bin:$HOME/Build/lib_latex/quiz:$PATH
 # export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
@@ -105,12 +86,6 @@ export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin:$HOME/.npm/bin
 export TERM=xterm-256color
 
 export FZF_DEFAULT_COMMAND='ag -g ""'
-
-#. /home/julien/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# added by Anaconda3 4.1.1 installer
-export PATH="$PATH:/home/julien/anaconda3/bin"
-#
 
 bindkey '^I' complete-word
 
