@@ -100,7 +100,7 @@ export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/j
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
 
 export GOPATH=~/Repositories/gowork
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin:$HOME/.npm/bin
 
 export TERM=xterm-256color
 
