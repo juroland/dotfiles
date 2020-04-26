@@ -11,7 +11,7 @@
             ]
         }
     ],
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "<leader>",
@@ -60,6 +60,7 @@
     "vim.disableExtension": false,
     "vim.textwidth": 100,
     "vim.hlsearch": true,
+    "vim.useCtrlKeys": false,
     "keyboard.dispatch": "keyCode",
     "window.zoomLevel": -1,
     "gitlens.blame.line.enabled": false,
