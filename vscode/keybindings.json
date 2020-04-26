@@ -39,11 +39,31 @@
         "when": "terminalFocus"
     },
     {
-        "key": "ctrl+oem_8",
+        "key": "ctrl+`",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     {
         "key": "ctrl+`",
         "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": ".",
+        "command": ""
+    },
+    {
+        "key": "alt+up",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.focusPrevious"
     }
 ]
