@@ -66,20 +66,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
-
-export PATH=$HOME/bin:$HOME/Build/lib_latex/quiz:$PATH
-# export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
-
-export TEXINPUTS="$TEXINPUTS:/home/julien/Build/lib_latex"
-
-
-export GUROBI_HOME="/home/julien/Build/gurobi600/linux64"
-export PATH="${PATH}:${GUROBI_HOME}/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
-
-export PATH="$PATH:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux:/home/julien/Build/clang-ctags:/home/julien/.local/bin"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/ibm/ILOG/CPLEX_Studio1261/cplex/bin/x86-64_linux"
-
 export GOPATH=~/Repositories/gowork
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin:$HOME/.npm/bin
 
