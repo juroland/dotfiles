@@ -71,7 +71,9 @@
     "python.jediEnabled": false,
     "python.venvPath": "~/.virtualenvs",
     "editor.minimap.enabled": true,
-    "editor.formatOnSave": true,
+    "editor.rulers": [
+        88
+    ],
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 100,
     "editor.renderWhitespace": "boundary",
