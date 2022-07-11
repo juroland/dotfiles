@@ -56,7 +56,7 @@ unsetopt share_history
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast  common-aliases)
+plugins=(git gitfast  common-aliases kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,5 +83,33 @@ setopt nosharehistory
 source ~/.tools
 
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-PROJECT_HOME=~/Repositories
+PROJECT_HOME=~/Repositories/wavely
 source ~/.local/bin/virtualenvwrapper.sh > /dev/null
+
+source ~/.env
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
+
+source ~/.aliases.work
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$NPM_PACKAGES/bin:$PATH"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+
+
+
+complete -o nospace -C /usr/bin/terraform terraform
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

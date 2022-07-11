@@ -8,12 +8,14 @@
 [http]
 	sslverify = false
 [core]
-	autocrlf = input
 	excludesfile = $HOME/.gitignore_global
 	editor = code --wait
+	autocrlf = input
 [mergetool "fugitive"]
 	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
 	tool = fugitive
 [alias]
     tree = log --graph --decorate --pretty=oneline --abbrev-commit --branches=*
+[color]
+	ui = auto

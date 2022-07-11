@@ -56,30 +56,39 @@
             ]
         }
     ],
-    "C_Cpp.intelliSenseEngine": "Default",
     "vim.disableExtension": false,
     "vim.textwidth": 100,
     "vim.hlsearch": true,
     "vim.useCtrlKeys": false,
     "keyboard.dispatch": "keyCode",
-    "window.zoomLevel": -1,
-    "gitlens.blame.line.enabled": false,
     "gitlens.statusBar.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
     "python.formatting.provider": "black",
-    "python.jediEnabled": false,
     "python.venvPath": "~/.virtualenvs",
     "autoDocstring.docstringFormat": "google",
     "editor.minimap.enabled": true,
     "editor.rulers": [
         88
     ],
-    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrap": "off",
     "editor.wordWrapColumn": 100,
     "editor.renderWhitespace": "boundary",
-    "workbench.panel.location": "bottom",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    // HACK: highlight function/method call
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "meta.function-call.generic",
+                "settings": {
+                    "foreground":"#DCDCAA"
+                }
+            }
+        ]
+    },
     "workbench.startupEditor": "welcomePage",
+    "workbench.editor.scrollToSwitchTabs": true,
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.currentLine.enabled": false,
     "gitlens.hovers.currentLine.enabled": false,
@@ -99,12 +108,89 @@
     "gitlens.views.fileHistory.enabled": true,
     "gitlens.views.lineHistory.enabled": true,
     "terminal.integrated.fontFamily": "Liberation Mono",
-    "cSpell.language": "en,fr",
+    // fix ctrl+k in terminal
+    "terminal.integrated.allowChords": false,
+    "cSpell.language": "en,en-US,fr",
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[yaml]":{
         "editor.insertSpaces": true,
         "editor.tabSize": 2
-    }
+    },
+    "yaml.schemas": {
+        "file:///toc.schema.json": "/toc\\.yml/i"
+    },
+    "files.watcherExclude": {
+        "**/.tox/**": true
+    },
+    "search.exclude": {
+        "**/.tox": true
+    },
+    "files.exclude": {
+        "**/.tox": true
+    },
+    "breadcrumbs.symbolSortOrder": "type",
+    "breadcrumbs.showVariables": false,
+    "outline.showVariables": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "diffEditor.renderSideBySide": false,
+    "python.analysis.logLevel": "Error",
+    "python.linting.pylintArgs": [
+        "--generate-members"
+    ],
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "jupyter.interactiveWindowMode": "perFile",
+    "todo-tree.tree.showScanModeButton": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "cmake.configureOnOpen": true,
+    "jupyter.askForKernelRestart": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": true,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "terminal.integrated.tabs.enabled": true,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "debug.disassemblyView.showSourceCode": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "python.languageServer": "Pylance",
+    "window.zoomLevel": 2,
+    "python.analysis.typeCheckingMode": "basic",
 }
