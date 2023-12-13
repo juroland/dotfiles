@@ -16,6 +16,7 @@ alias home="cd $HOME"
 
 alias open="xdg-open &>/dev/null"
 alias df="df -h"
+alias clip="xsel -i -b"
 
 unsetopt share_history
 
@@ -53,16 +54,24 @@ unsetopt share_history
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/Downloads/google-cloud-sdk/path.zsh.inc ]; then . '/home/juroland/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f ~/Downloads/google-cloud-sdk/completion.zsh.inc ]; then . '/home/juroland/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git gitfast  common-aliases kubectl)
+plugins=(terraform kubectl kubectx git gitfast common-aliases kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # PROMPT="%# "
+PROMPT='$(kube_ps1)'$PROMPT
 
 export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
@@ -84,14 +93,11 @@ source ~/.tools
 
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 PROJECT_HOME=~/Repositories/wavely
-source ~/.local/bin/virtualenvwrapper.sh > /dev/null
 
 source ~/.env
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
-
-source ~/.aliases.work
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
@@ -105,11 +111,26 @@ autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
 
-
-
-
 complete -o nospace -C /usr/bin/terraform terraform
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=/usr/bin:~/.local/bin:$PATH
+source ~/.local/bin/virtualenvwrapper.sh
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+EDITOR="code --wait"
+
+alias kubectx="kubectl-ctx"
+alias kubens="kubectl-ns"
+KUBE_PS1_SEPARATOR=" "
+KUBE_PS1_SYMBOL_COLOR="cyan"
+KUBE_PS1_NS_ENABLE=false
+RPROMPT='$(tf_prompt_info)'
+ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[red]%}[TF."
+ZSH_THEME_TF_PROMPT_SUFFIX="]%{$reset_color%}"
