@@ -296,3 +296,7 @@ let g:UltiSnipsJumpBackwardTrigger="<leader>p<tab>"
 
 " ack with ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" select the last changed text (or the text that was just pasted)
+nnoremap gp `[v`]
+
