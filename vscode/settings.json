@@ -64,7 +64,6 @@
     "gitlens.statusBar.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
-    "python.formatting.provider": "black",
     "python.venvPath": "~/.virtualenvs",
     "autoDocstring.docstringFormat": "google",
     "editor.minimap.enabled": true,
@@ -82,7 +81,13 @@
             {
                 "scope": "meta.function-call.generic",
                 "settings": {
-                    "foreground":"#DCDCAA"
+                    "foreground": "#DCDCAA"
+                }
+            },
+            {
+                "scope": "keyword.other.dotenv",
+                "settings": {
+                    "foreground": "#FF000000"
                 }
             }
         ]
@@ -114,9 +119,10 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "[yaml]":{
+    "[yaml]": {
         "editor.insertSpaces": true,
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "yaml.schemas": {
         "file:///toc.schema.json": "/toc\\.yml/i"
@@ -154,10 +160,9 @@
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.suggestSelection": "first",
         "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": false
+        "editor.wordBasedSuggestions": "off"
     },
     "workbench.colorTheme": "Visual Studio Dark",
-    "jupyter.interactiveWindowMode": "perFile",
     "todo-tree.tree.showScanModeButton": false,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -191,6 +196,51 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
     "python.languageServer": "Pylance",
-    "window.zoomLevel": 2,
     "python.analysis.typeCheckingMode": "basic",
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "vscode-icons",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+    },
+    "cSpell.userWords": [
+        "dataframe",
+        "discretization",
+        "regexes"
+    ],
+    "editor.formatOnSave": true,
+    "jupyter.interactiveWindow.creationMode": "perFile",
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "VSCodeExporter.port": 9931,
+    "VSCodeExporter.debugLogs": true,
+    "gopls": {
+        "ui.semanticTokens": true
+    },
+    "debug.onTaskErrors": "abort",
+    "cloudcode.autoDependencies": "off",
+    "githubPullRequests.pullBranch": "never",
+    "debug.toolBarLocation": "commandCenter",
+    "window.titleBarStyle": "custom",
+    "files.associations": {
+        "*.excalidraw": "json",
+        "*.excalidrawlib": "json",
+        ".env*": "dotenv",
+        "stdexcept": "cpp",
+        "limits": "cpp"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "window.zoomLevel": 1,
+    "workbench.tree.enableStickyScroll": true,
+    "terminal.integrated.stickyScroll.enabled": true
 }

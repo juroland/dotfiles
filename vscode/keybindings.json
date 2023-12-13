@@ -47,10 +47,6 @@
         "command": "-workbench.action.terminal.toggleTerminal"
     },
     {
-        "key": ".",
-        "command": ""
-    },
-    {
         "key": "alt+up",
         "command": "workbench.action.toggleMaximizedPanel"
     },
