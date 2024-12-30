@@ -61,5 +61,13 @@
     {
         "key": "ctrl+shift+k",
         "command": "workbench.action.terminal.focusPrevious"
+    },
+    {
+        "key": ".",
+        "command": ""
+    },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.openRecent"
     }
 ]

@@ -77,17 +77,31 @@
     "editor.fontLigatures": true,
     // HACK: highlight function/method call
     "editor.tokenColorCustomizations": {
+        "[*Light*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#000"
+                    }
+                }
+            ]
+        },
+        "[*Dark*]": {
+            "textMateRules": [
+                {
+                    "scope": "ref.matchtext",
+                    "settings": {
+                        "foreground": "#fff"
+                    }
+                }
+            ]
+        },
         "textMateRules": [
             {
                 "scope": "meta.function-call.generic",
                 "settings": {
                     "foreground": "#DCDCAA"
-                }
-            },
-            {
-                "scope": "keyword.other.dotenv",
-                "settings": {
-                    "foreground": "#FF000000"
                 }
             }
         ]
@@ -125,7 +139,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "yaml.schemas": {
-        "file:///toc.schema.json": "/toc\\.yml/i"
+        "file:///home/juroland/.vscode/extensions/docsmsft.docs-yaml-1.0.5/dist/toc.schema.json": "/toc\\.yml/i"
     },
     "files.watcherExclude": {
         "**/.tox/**": true
@@ -143,13 +157,10 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "diffEditor.renderSideBySide": false,
     "python.analysis.logLevel": "Error",
-    "python.linting.pylintArgs": [
-        "--generate-members"
-    ],
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -162,7 +173,6 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": "off"
     },
-    "workbench.colorTheme": "Visual Studio Dark",
     "todo-tree.tree.showScanModeButton": false,
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
@@ -206,18 +216,24 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.iconTheme": "vscode-icons",
     "[python]": {
-        "editor.formatOnType": true,
-        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    //     "[xml]": {
+    //         "editor.defaultFormatter": "redhat.vscode-xml",
+    //         "editor.tabSize": 2
+    //     },
     "cSpell.userWords": [
         "dataframe",
         "discretization",
         "regexes"
     ],
     "editor.formatOnSave": true,
-    "jupyter.interactiveWindow.creationMode": "perFile",
+    //     "jupyter.interactiveWindow.creationMode": "perFile",
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -226,21 +242,143 @@
     "gopls": {
         "ui.semanticTokens": true
     },
-    "debug.onTaskErrors": "abort",
-    "cloudcode.autoDependencies": "off",
-    "githubPullRequests.pullBranch": "never",
-    "debug.toolBarLocation": "commandCenter",
-    "window.titleBarStyle": "custom",
-    "files.associations": {
-        "*.excalidraw": "json",
-        "*.excalidrawlib": "json",
-        ".env*": "dotenv",
-        "stdexcept": "cpp",
-        "limits": "cpp"
+    //     "debug.onTaskErrors": "abort",
+    //     "cloudcode.autoDependencies": "off",
+    //     "githubPullRequests.pullBranch": "never",
+    //     "debug.toolBarLocation": "commandCenter",
+    //     "files.associations": {
+    //         "*.excalidraw": "json",
+    //         "*.excalidrawlib": "json",
+    //         ".env*": "dotenv",
+    //         "stdexcept": "cpp",
+    //         "limits": "cpp",
+    //         "task.h": "c",
+    //         "i2s.h": "c",
+    //         "limits.h": "c",
+    //         "*.tcc": "c",
+    //         "charconv": "c",
+    //         "chrono": "c",
+    //         "optional": "c",
+    //         "format": "c",
+    //         "ratio": "c",
+    //         "system_error": "c",
+    //         "array": "c",
+    //         "functional": "c",
+    //         "regex": "c",
+    //         "tuple": "c",
+    //         "type_traits": "c",
+    //         "utility": "c",
+    //         "esp_compiler.h": "c",
+    //         "memory": "cpp",
+    //         "future": "cpp",
+    //         "istream": "cpp",
+    //         "variant": "cpp",
+    //         "esp_eth_mac_openeth.h": "c",
+    //         "string": "cpp",
+    //         "string_view": "cpp",
+    //         "span": "cpp",
+    //         "ostream": "cpp",
+    //         "iosfwd": "cpp",
+    //         "sstream": "cpp",
+    //         "atomic": "cpp",
+    //         "bit": "cpp",
+    //         "cctype": "cpp",
+    //         "clocale": "cpp",
+    //         "cmath": "cpp",
+    //         "compare": "cpp",
+    //         "concepts": "cpp",
+    //         "condition_variable": "cpp",
+    //         "cstdarg": "cpp",
+    //         "cstddef": "cpp",
+    //         "cstdint": "cpp",
+    //         "cstdio": "cpp",
+    //         "cstdlib": "cpp",
+    //         "cstring": "cpp",
+    //         "ctime": "cpp",
+    //         "cwchar": "cpp",
+    //         "cwctype": "cpp",
+    //         "deque": "cpp",
+    //         "list": "cpp",
+    //         "map": "cpp",
+    //         "set": "cpp",
+    //         "unordered_map": "cpp",
+    //         "vector": "cpp",
+    //         "exception": "cpp",
+    //         "algorithm": "cpp",
+    //         "iterator": "cpp",
+    //         "memory_resource": "cpp",
+    //         "numeric": "cpp",
+    //         "random": "cpp",
+    //         "fstream": "cpp",
+    //         "initializer_list": "cpp",
+    //         "iomanip": "cpp",
+    //         "iostream": "cpp",
+    //         "mutex": "cpp",
+    //         "new": "cpp",
+    //         "numbers": "cpp",
+    //         "semaphore": "cpp",
+    //         "stop_token": "cpp",
+    //         "streambuf": "cpp",
+    //         "thread": "cpp",
+    //         "cinttypes": "cpp",
+    //         "typeinfo": "cpp"
+    //     },
+    //     "go.toolsManagement.autoUpdate": true,
+    //     "editor.unicodeHighlight.invisibleCharacters": false,
+    //     "workbench.tree.enableStickyScroll": true,
+    //     "terminal.integrated.stickyScroll.enabled": false,
+    //     "dotenv.enableAutocloaking": false,
+    //     "cloudcode.duetAI.project": "jarvis-367413",
+    //     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
+    //     "liveServer.settings.donotVerifyTags": true,
+    //     "window.zoomLevel": 1,
+    //     "liveshare.accessibility.voiceEnabled": false,
+    //     "liveshare.accessibility.soundsEnabled": false,
+    //     "accessibility.voice.keywordActivation": "inlineChat",
+    //     "emeraldwalk.runonsave": {
+    //         "commands": [
+    //             {
+    //                 "match": "\\.go$",
+    //                 "cmd": "golines ${file} -m 88 -w"
+    //             }
+    //         ]
+    //     },
+    //     "security.promptForLocalFileProtocolHandling": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
     },
-    "go.toolsManagement.autoUpdate": true,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "window.zoomLevel": 1,
-    "workbench.tree.enableStickyScroll": true,
-    "terminal.integrated.stickyScroll.enabled": true
+    "github.copilot.editor.enableAutoCompletions": true,
+    "explorer.fileNesting.patterns": {
+        "Cargo.toml": "Cargo.lock",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "inlineChat.holdToSpeech": false,
+    "idf.espIdfPath": "/home/juroland/esp/esp-idf",
+    "idf.pythonBinPath": "/home/juroland/.espressif/python_env/idf5.4_py3.12_env/bin/python",
+    "idf.toolsPath": "/home/juroland/.espressif",
+    "idf.customExtraPaths": "/home/juroland/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin:/home/juroland/.espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin:/home/juroland/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin:/home/juroland/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin:/home/juroland/.espressif/tools/esp32ulp-elf/2.38_20240113/esp32ulp-elf/bin:/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/bin:/home/juroland/.espressif/tools/esp-rom-elfs/20240305",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/juroland/.espressif/tools/esp-rom-elfs/20240305/"
+    },
+    "idf.gitPath": "git",
+    "idf.showOnboardingOnInit": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "idf.pythonInstallPath": "/usr/bin/python3",
+    "idf.hasWalkthroughBeenShown": true,
+    "extensions.ignoreRecommendations": true,
+    "window.customTitleBarVisibility": "auto",
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom"
 }

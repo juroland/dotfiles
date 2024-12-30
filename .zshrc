@@ -1,3 +1,5 @@
+DISABLE_AUTO_UPDATE=true
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -64,14 +66,14 @@ if [ -f ~/Downloads/google-cloud-sdk/completion.zsh.inc ]; then . '/home/jurolan
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(terraform kubectl kubectx git gitfast common-aliases kube-ps1)
+plugins=(terraform git gitfast common-aliases poetry)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # PROMPT="%# "
-PROMPT='$(kube_ps1)'$PROMPT
+# PROMPT='$(kube_ps1)'$PROMPT
 
 export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
@@ -94,7 +96,7 @@ source ~/.tools
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 PROJECT_HOME=~/Repositories/wavely
 
-source ~/.env
+#source ~/.env
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
@@ -120,17 +122,18 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:/usr/local/go/bin
 
 export PATH=/usr/bin:~/.local/bin:$PATH
-source ~/.local/bin/virtualenvwrapper.sh
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 EDITOR="code --wait"
 
-alias kubectx="kubectl-ctx"
-alias kubens="kubectl-ns"
-KUBE_PS1_SEPARATOR=" "
-KUBE_PS1_SYMBOL_COLOR="cyan"
-KUBE_PS1_NS_ENABLE=false
-RPROMPT='$(tf_prompt_info)'
-ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[red]%}[TF."
-ZSH_THEME_TF_PROMPT_SUFFIX="]%{$reset_color%}"
+#alias kubectx="kubectl-ctx"
+#alias kubens="kubectl-ns"
+#KUBE_PS1_SEPARATOR=" "
+#KUBE_PS1_SYMBOL_COLOR="cyan"
+#KUBE_PS1_NS_ENABLE=false
+#RPROMPT='$(tf_prompt_info)'
+#ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[red]%}[TF."
+#ZSH_THEME_TF_PROMPT_SUFFIX="]%{$reset_color%}"
+
+source /etc/profile.d/virtualenvwrapper.sh

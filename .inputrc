@@ -1,0 +1,2 @@
+"\M-\C-f": shell-forward-word
+"\M-\C-b": shell-backward-word
