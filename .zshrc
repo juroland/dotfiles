@@ -66,7 +66,7 @@ if [ -f ~/Downloads/google-cloud-sdk/completion.zsh.inc ]; then . '/home/jurolan
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(terraform git gitfast common-aliases poetry)
+plugins=(terraform git gitfast common-aliases poetry virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,13 +127,22 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 EDITOR="code --wait"
 
-#alias kubectx="kubectl-ctx"
-#alias kubens="kubectl-ns"
-#KUBE_PS1_SEPARATOR=" "
-#KUBE_PS1_SYMBOL_COLOR="cyan"
-#KUBE_PS1_NS_ENABLE=false
-#RPROMPT='$(tf_prompt_info)'
-#ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[red]%}[TF."
-#ZSH_THEME_TF_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_TF_PROMPT_PREFIX="%{$fg[red]%}[TF."
+ZSH_THEME_TF_PROMPT_SUFFIX="]%{$reset_color%}"
 
+PROMPT='$(virtualenv_prompt_info) '
+PROMPT+="%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%} ) %{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT+=' $(git_prompt_info)'
+
+ZSH_THEME_VIRTUALENV_PREFIX="(%{$fg_bold[green]%}"
+ZSH_THEME_VIRTUALENV_SUFFIX="%{$reset_color%}-venv)"
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}%1{✗%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 source /etc/profile.d/virtualenvwrapper.sh
+
+unalias cp

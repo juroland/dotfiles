@@ -32,6 +32,10 @@ Plugin 'mileszs/ack.vim' " requires silversearcher-ag
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'edsono/vim-matchit'
+
+
+
 
 call vundle#end()                                " required
 filetype plugin indent on                        " required

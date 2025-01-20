@@ -60,6 +60,8 @@
     "vim.textwidth": 100,
     "vim.hlsearch": true,
     "vim.useCtrlKeys": false,
+    // avoid auto unfold
+    "vim.foldfix": true,
     "keyboard.dispatch": "keyCode",
     "gitlens.statusBar.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
@@ -380,5 +382,6 @@
     "extensions.ignoreRecommendations": true,
     "window.customTitleBarVisibility": "auto",
     "window.menuBarVisibility": "compact",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+    "editor.guides.bracketPairs": true
 }
