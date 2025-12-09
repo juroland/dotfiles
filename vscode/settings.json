@@ -66,7 +66,6 @@
     "gitlens.statusBar.enabled": false,
     "gitlens.codeLens.authors.enabled": false,
     "gitlens.codeLens.recentChange.enabled": false,
-    "python.venvPath": "~/.virtualenvs",
     "autoDocstring.docstringFormat": "google",
     "editor.minimap.enabled": true,
     "editor.rulers": [
@@ -77,6 +76,11 @@
     "editor.renderWhitespace": "boundary",
     "editor.fontFamily": "Fira Code",
     "editor.fontLigatures": true,
+    "editor.defaultColorDecorators": "always",
+    "color-picker.languages": [
+        "javascript",
+        "typescript"
+    ],
     // HACK: highlight function/method call
     "editor.tokenColorCustomizations": {
         "[*Light*]": {
@@ -150,6 +154,9 @@
         "**/.tox": true
     },
     "files.exclude": {
+        ".dvs": true,
+        ".ruff_cache": true,
+        ".venv": true,
         "**/.tox": true
     },
     "breadcrumbs.symbolSortOrder": "type",
@@ -162,7 +169,6 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "diffEditor.renderSideBySide": false,
-    "python.analysis.logLevel": "Error",
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -207,8 +213,28 @@
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one"
     },
+    /******************************************/
+    /**** Python Settings - start *****************/
+    /******************************************/
+    "python.venvPath": "~/.virtualenvs",
+    "python.analysis.logLevel": "Error",
     "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.typeCheckingMode": "standard",
+    // Exclude all files from workspace, enabling IntelliSense support for open files only 
+    "python.analysis.exclude": [
+        "**"
+    ],
+    // Disable indexing for workspace & third-party libraries
+    "python.analysis.indexing": false,
+    // Enable problem reporting only for open files, instead of all files in the workspace 
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    /****************************************/
+    /**** Python Settings - end *************/
+    /****************************************/
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -218,24 +244,17 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    },
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
-    //     "[xml]": {
-    //         "editor.defaultFormatter": "redhat.vscode-xml",
-    //         "editor.tabSize": 2
-    //     },
     "cSpell.userWords": [
+        "classifieur",
+        "Classifieur",
         "dataframe",
         "discretization",
         "regexes"
     ],
     "editor.formatOnSave": true,
-    //     "jupyter.interactiveWindow.creationMode": "perFile",
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -244,115 +263,14 @@
     "gopls": {
         "ui.semanticTokens": true
     },
-    //     "debug.onTaskErrors": "abort",
-    //     "cloudcode.autoDependencies": "off",
-    //     "githubPullRequests.pullBranch": "never",
-    //     "debug.toolBarLocation": "commandCenter",
-    //     "files.associations": {
-    //         "*.excalidraw": "json",
-    //         "*.excalidrawlib": "json",
-    //         ".env*": "dotenv",
-    //         "stdexcept": "cpp",
-    //         "limits": "cpp",
-    //         "task.h": "c",
-    //         "i2s.h": "c",
-    //         "limits.h": "c",
-    //         "*.tcc": "c",
-    //         "charconv": "c",
-    //         "chrono": "c",
-    //         "optional": "c",
-    //         "format": "c",
-    //         "ratio": "c",
-    //         "system_error": "c",
-    //         "array": "c",
-    //         "functional": "c",
-    //         "regex": "c",
-    //         "tuple": "c",
-    //         "type_traits": "c",
-    //         "utility": "c",
-    //         "esp_compiler.h": "c",
-    //         "memory": "cpp",
-    //         "future": "cpp",
-    //         "istream": "cpp",
-    //         "variant": "cpp",
-    //         "esp_eth_mac_openeth.h": "c",
-    //         "string": "cpp",
-    //         "string_view": "cpp",
-    //         "span": "cpp",
-    //         "ostream": "cpp",
-    //         "iosfwd": "cpp",
-    //         "sstream": "cpp",
-    //         "atomic": "cpp",
-    //         "bit": "cpp",
-    //         "cctype": "cpp",
-    //         "clocale": "cpp",
-    //         "cmath": "cpp",
-    //         "compare": "cpp",
-    //         "concepts": "cpp",
-    //         "condition_variable": "cpp",
-    //         "cstdarg": "cpp",
-    //         "cstddef": "cpp",
-    //         "cstdint": "cpp",
-    //         "cstdio": "cpp",
-    //         "cstdlib": "cpp",
-    //         "cstring": "cpp",
-    //         "ctime": "cpp",
-    //         "cwchar": "cpp",
-    //         "cwctype": "cpp",
-    //         "deque": "cpp",
-    //         "list": "cpp",
-    //         "map": "cpp",
-    //         "set": "cpp",
-    //         "unordered_map": "cpp",
-    //         "vector": "cpp",
-    //         "exception": "cpp",
-    //         "algorithm": "cpp",
-    //         "iterator": "cpp",
-    //         "memory_resource": "cpp",
-    //         "numeric": "cpp",
-    //         "random": "cpp",
-    //         "fstream": "cpp",
-    //         "initializer_list": "cpp",
-    //         "iomanip": "cpp",
-    //         "iostream": "cpp",
-    //         "mutex": "cpp",
-    //         "new": "cpp",
-    //         "numbers": "cpp",
-    //         "semaphore": "cpp",
-    //         "stop_token": "cpp",
-    //         "streambuf": "cpp",
-    //         "thread": "cpp",
-    //         "cinttypes": "cpp",
-    //         "typeinfo": "cpp"
-    //     },
-    //     "go.toolsManagement.autoUpdate": true,
-    //     "editor.unicodeHighlight.invisibleCharacters": false,
-    //     "workbench.tree.enableStickyScroll": true,
-    //     "terminal.integrated.stickyScroll.enabled": false,
-    //     "dotenv.enableAutocloaking": false,
-    //     "cloudcode.duetAI.project": "jarvis-367413",
-    //     "cloudcode.duetAI.inlineSuggestions.enableAuto": false,
-    //     "liveServer.settings.donotVerifyTags": true,
-    //     "window.zoomLevel": 1,
-    //     "liveshare.accessibility.voiceEnabled": false,
-    //     "liveshare.accessibility.soundsEnabled": false,
-    //     "accessibility.voice.keywordActivation": "inlineChat",
-    //     "emeraldwalk.runonsave": {
-    //         "commands": [
-    //             {
-    //                 "match": "\\.go$",
-    //                 "cmd": "golines ${file} -m 88 -w"
-    //             }
-    //         ]
-    //     },
-    //     "security.promptForLocalFileProtocolHandling": false,
-    "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.go$",
+                "cmd": "golines ${file} -m 88 -w"
+            }
+        ]
     },
-    "github.copilot.editor.enableAutoCompletions": true,
     "explorer.fileNesting.patterns": {
         "Cargo.toml": "Cargo.lock",
         "*.sqlite": "${capture}.${extname}-*",
@@ -364,9 +282,7 @@
     },
     "inlineChat.holdToSpeech": false,
     "idf.espIdfPath": "/home/juroland/esp/esp-idf",
-    "idf.pythonBinPath": "/home/juroland/.espressif/python_env/idf5.4_py3.12_env/bin/python",
     "idf.toolsPath": "/home/juroland/.espressif",
-    "idf.customExtraPaths": "/home/juroland/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin:/home/juroland/.espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin:/home/juroland/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin:/home/juroland/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin:/home/juroland/.espressif/tools/esp32ulp-elf/2.38_20240113/esp32ulp-elf/bin:/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/bin:/home/juroland/.espressif/tools/esp-rom-elfs/20240305",
     "idf.customExtraVars": {
         "OPENOCD_SCRIPTS": "/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
         "ESP_ROM_ELF_DIR": "/home/juroland/.espressif/tools/esp-rom-elfs/20240305/"
@@ -383,5 +299,56 @@
     "window.customTitleBarVisibility": "auto",
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "custom",
-    "editor.guides.bracketPairs": true
+    "editor.guides.bracketPairs": true,
+    "git.blame.editorDecoration.enabled": false,
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "githubPullRequests.pullBranch": "never",
+    "go.toolsManagement.autoUpdate": true,
+    "editor.inlineSuggest.enabled": true,
+    "pgsql.serverGroups": [
+        {
+            "name": "Servers",
+            "id": "9A76D47A-7DD4-4982-ABEF-B87A77C4B941",
+            "isDefault": true
+        },
+        {
+            "id": "C8576B54-6797-4D64-AADB-984EEFD2D217",
+            "name": "jarvis-local-db",
+            "description": ""
+        }
+    ],
+    "docker.extension.enableComposeLanguageServer": false,
+    "git.blame.statusBarItem.enabled": false,
+    "playwright.reuseBrowser": true,
+    "cmake.environment": {
+        "PATH": "/home/juroland/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.40.1/resources/cube-cmake/linux:/home/juroland/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-0.17.1/resources/binaries/linux/x86_64:${env.PATH}"
+    },
+    "STM32VSCodeExtension.cubeCLT.path": "/home/juroland/st/stm32cubeclt_1.19.0",
+    "STM32VSCodeExtension.projectCreator.executablePath": "/home/juroland/st/STM32CubeMX/STM32CubeMX",
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "chat.agent.maxRequests": 200,
+    "remote.SSH.useExecServer": false,
+    "terminal.integrated.suggest.enabled": false,
+    "files.associations": {
+        ".env*": "dotenv"
+    },
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
 }

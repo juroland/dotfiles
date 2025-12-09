@@ -146,3 +146,11 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 source /etc/profile.d/virtualenvwrapper.sh
 
 unalias cp
+. "/home/juroland/.deno/env"
+. /home/juroland/.zshenv
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+. /home/juroland/.aliases.work

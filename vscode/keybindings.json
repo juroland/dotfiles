@@ -69,5 +69,9 @@
     {
         "key": "ctrl+r",
         "command": "workbench.action.openRecent"
-    }
+    },
+    {
+        "key": "alt+\\",
+        "command": "editor.action.inlineSuggest.trigger",
+    },
 ]
