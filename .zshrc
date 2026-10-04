@@ -151,6 +151,15 @@ unalias cp
 
 . "$HOME/.atuin/bin/env"
 
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 . /home/juroland/.aliases.work
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+export PATH="/home/juroland/.local/bin:$PATH"
+export IDF_PATH="/home/juroland/.espressif/v6.0.1/esp-idf"
+
+setopt extendedglob
+
+export KUBECONFIG=~/.kube/config-super6c
