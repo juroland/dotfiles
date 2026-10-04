@@ -1,72 +1,13 @@
 {
-    "vim.leader": ",",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "k"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "<leader>",
-                "w"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "q"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.files.save",
-                    "args": []
-                },
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "<leader>",
-                "<space>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": ":nohl",
-                    "args": []
-                }
-            ]
-        }
-    ],
-    "vim.disableExtension": false,
-    "vim.textwidth": 100,
-    "vim.hlsearch": true,
-    "vim.useCtrlKeys": false,
-    // avoid auto unfold
-    "vim.foldfix": true,
-    "keyboard.dispatch": "keyCode",
-    "gitlens.statusBar.enabled": false,
-    "gitlens.codeLens.authors.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "autoDocstring.docstringFormat": "google",
+    // ============================================================
+    // CORE EDITOR SETTINGS
+    // ============================================================
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": true,
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
     "editor.minimap.enabled": true,
     "editor.rulers": [
         88
@@ -74,14 +15,13 @@
     "editor.wordWrap": "off",
     "editor.wordWrapColumn": 100,
     "editor.renderWhitespace": "boundary",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
     "editor.defaultColorDecorators": "always",
-    "color-picker.languages": [
-        "javascript",
-        "typescript"
-    ],
-    // HACK: highlight function/method call
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.linkedEditing": true,
+    "editor.suggest.showInlineDetails": true,
+    "editor.gotoLocation.multipleDefinitions": "goto",
     "editor.tokenColorCustomizations": {
         "[*Light*]": {
             "textMateRules": [
@@ -112,46 +52,45 @@
             }
         ]
     },
+    // ============================================================
+    // WORKBENCH & UI SETTINGS
+    // ============================================================
     "workbench.startupEditor": "welcomePage",
     "workbench.editor.scrollToSwitchTabs": true,
-    "gitlens.hovers.currentLine.over": "line",
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.enabled": false,
-    "gitlens.keymap": "alternate",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
+    "workbench.commandPalette.history": 50,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
     },
-    "latex-workshop.view.pdf.viewer": "tab",
-    "gitlens.historyExplorer.enabled": true,
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
+    "window.customTitleBarVisibility": "auto",
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.filePath": "on",
+    "breadcrumbs.symbolSortOrder": "type",
+    "breadcrumbs.showVariables": false,
+    "outline.showVariables": false,
+    "diffEditor.renderSideBySide": false,
+    "debug.disassemblyView.showSourceCode": false,
+    // ============================================================
+    // TERMINAL SETTINGS
+    // ============================================================
     "terminal.integrated.fontFamily": "Liberation Mono",
-    // fix ctrl+k in terminal
     "terminal.integrated.allowChords": false,
-    "cSpell.language": "en,en-US,fr",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[yaml]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "yaml.schemas": {
-        "file:///home/juroland/.vscode/extensions/docsmsft.docs-yaml-1.0.5/dist/toc.schema.json": "/toc\\.yml/i"
-    },
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.suggest.enabled": false,
+    // ============================================================
+    // FILE MANAGEMENT
+    // ============================================================
     "files.watcherExclude": {
-        "**/.tox/**": true
-    },
-    "search.exclude": {
-        "**/.tox": true
+        "**/.tox/**": true,
+        "**/node_modules/**": true,
+        "**/.git/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/.pytest_cache/**": true,
+        "**/__pycache__/**": true,
+        "**/target/**": true,
+        "**/.venv/**": true
     },
     "files.exclude": {
         ".dvs": true,
@@ -159,16 +98,149 @@
         ".venv": true,
         "**/.tox": true
     },
-    "breadcrumbs.symbolSortOrder": "type",
-    "breadcrumbs.showVariables": false,
-    "outline.showVariables": false,
+    "files.associations": {
+        ".env*": "dotenv"
+    },
+    "search.exclude": {
+        "**/.tox": true
+    },
+    "search.smartCase": true,
+    "explorer.fileNesting.patterns": {
+        "Cargo.toml": "Cargo.lock",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    // ============================================================
+    // KEYBOARD & KEYBINDINGS
+    // ============================================================
+    "keyboard.dispatch": "keyCode",
+    // ============================================================
+    // VIM SETTINGS
+    // ============================================================
+    "vscode-neovim.compositeKeys": {
+        "jk": {
+            // Use lua to execute any logic
+            "command": "vscode-neovim.lua",
+            "args": [
+                [
+                    "local code = require('vscode')",
+                    "code.action('vscode-neovim.escape')",
+                    "code.action('workbench.action.files.save')",
+                ],
+            ],
+        },
+    },
+    "vscode-neovim.neovimExecutablePaths.linux": "/opt/nvim-linux-x86_64/bin/nvim",
+    "vscode-neovim.afterInitConfig": [
+        "set ignorecase"
+    ],
+    // "vim.leader": ",",
+    // "vim.insertModeKeyBindings": [
+    //     {
+    //         "before": [
+    //             "j",
+    //             "k"
+    //         ],
+    //         "after": [
+    //             "<Esc>"
+    //         ]
+    //     }
+    // ],
+    // "vim.normalModeKeyBindingsNonRecursive": [
+    //     {
+    //         "before": [
+    //             "<leader>",
+    //             "w"
+    //         ],
+    //         "after": [],
+    //         "commands": [
+    //             {
+    //                 "command": "workbench.action.files.save",
+    //                 "args": []
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         "before": [
+    //             "<leader>",
+    //             "q"
+    //         ],
+    //         "after": [],
+    //         "commands": [
+    //             {
+    //                 "command": "workbench.action.files.save",
+    //                 "args": []
+    //             },
+    //             {
+    //                 "command": "workbench.action.closeActiveEditor",
+    //                 "args": []
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         "before": [
+    //             "<leader>",
+    //             "<space>"
+    //         ],
+    //         "after": [],
+    //         "commands": [
+    //             {
+    //                 "command": ":nohl",
+    //                 "args": []
+    //             }
+    //         ]
+    //     }
+    // ],
+    // "vim.disableExtension": false,
+    // "vim.textwidth": 100,
+    // "vim.hlsearch": true,
+    // "vim.useCtrlKeys": false,
+    // "vim.foldfix": true,
+    // "vim.smartRelativeLine": true,
+    // "vim.searchHighlightTextColor": "rgba(255, 255, 255, 0.3)",
+    // ============================================================
+    // LANGUAGE SPECIFIC FORMATTERS & SETTINGS
+    // ============================================================
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "diffEditor.renderSideBySide": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[dart]": {
         "editor.formatOnSave": true,
         "editor.formatOnType": true,
@@ -181,150 +253,6 @@
         "editor.tabCompletion": "onlySnippets",
         "editor.wordBasedSuggestions": "off"
     },
-    "todo-tree.tree.showScanModeButton": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
-    },
-    "cmake.configureOnOpen": true,
-    "jupyter.askForKernelRestart": false,
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "todo-tree.general.tags": [
-        "BUG",
-        "HACK",
-        "FIXME",
-        "TODO",
-        "XXX",
-        "[ ]",
-        "[x]"
-    ],
-    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-    "editor.cursorStyle": "line",
-    "editor.insertSpaces": true,
-    "editor.lineNumbers": "on",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "terminal.integrated.tabs.enabled": true,
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "debug.disassemblyView.showSourceCode": false,
-    "[markdown]": {
-        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-    },
-    /******************************************/
-    /**** Python Settings - start *****************/
-    /******************************************/
-    "python.venvPath": "~/.virtualenvs",
-    "python.analysis.logLevel": "Error",
-    "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "standard",
-    // Exclude all files from workspace, enabling IntelliSense support for open files only 
-    "python.analysis.exclude": [
-        "**"
-    ],
-    // Disable indexing for workspace & third-party libraries
-    "python.analysis.indexing": false,
-    // Enable problem reporting only for open files, instead of all files in the workspace 
-    "python.analysis.diagnosticMode": "openFilesOnly",
-    "[python]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    },
-    /****************************************/
-    /**** Python Settings - end *************/
-    /****************************************/
-    "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "cSpell.userWords": [
-        "classifieur",
-        "Classifieur",
-        "dataframe",
-        "discretization",
-        "regexes"
-    ],
-    "editor.formatOnSave": true,
-    "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "VSCodeExporter.port": 9931,
-    "VSCodeExporter.debugLogs": true,
-    "gopls": {
-        "ui.semanticTokens": true
-    },
-    "emeraldwalk.runonsave": {
-        "commands": [
-            {
-                "match": "\\.go$",
-                "cmd": "golines ${file} -m 88 -w"
-            }
-        ]
-    },
-    "explorer.fileNesting.patterns": {
-        "Cargo.toml": "Cargo.lock",
-        "*.sqlite": "${capture}.${extname}-*",
-        "*.db": "${capture}.${extname}-*",
-        "*.sqlite3": "${capture}.${extname}-*",
-        "*.db3": "${capture}.${extname}-*",
-        "*.sdb": "${capture}.${extname}-*",
-        "*.s3db": "${capture}.${extname}-*"
-    },
-    "inlineChat.holdToSpeech": false,
-    "idf.espIdfPath": "/home/juroland/esp/esp-idf",
-    "idf.toolsPath": "/home/juroland/.espressif",
-    "idf.customExtraVars": {
-        "OPENOCD_SCRIPTS": "/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
-        "ESP_ROM_ELF_DIR": "/home/juroland/.espressif/tools/esp-rom-elfs/20240305/"
-    },
-    "idf.gitPath": "git",
-    "idf.showOnboardingOnInit": false,
-    "cmake.pinnedCommands": [
-        "workbench.action.tasks.configureTaskRunner",
-        "workbench.action.tasks.runTask"
-    ],
-    "idf.pythonInstallPath": "/usr/bin/python3",
-    "idf.hasWalkthroughBeenShown": true,
-    "extensions.ignoreRecommendations": true,
-    "window.customTitleBarVisibility": "auto",
-    "window.menuBarVisibility": "compact",
-    "window.titleBarStyle": "custom",
-    "editor.guides.bracketPairs": true,
-    "git.blame.editorDecoration.enabled": false,
-    "github.copilot.nextEditSuggestions.enabled": false,
-    "githubPullRequests.pullBranch": "never",
-    "go.toolsManagement.autoUpdate": true,
-    "editor.inlineSuggest.enabled": true,
-    "pgsql.serverGroups": [
-        {
-            "name": "Servers",
-            "id": "9A76D47A-7DD4-4982-ABEF-B87A77C4B941",
-            "isDefault": true
-        },
-        {
-            "id": "C8576B54-6797-4D64-AADB-984EEFD2D217",
-            "name": "jarvis-local-db",
-            "description": ""
-        }
-    ],
-    "docker.extension.enableComposeLanguageServer": false,
-    "git.blame.statusBarItem.enabled": false,
-    "playwright.reuseBrowser": true,
-    "cmake.environment": {
-        "PATH": "/home/juroland/.vscode/extensions/stmicroelectronics.stm32cube-ide-build-cmake-1.40.1/resources/cube-cmake/linux:/home/juroland/.vscode/extensions/stmicroelectronics.stm32cube-ide-core-0.17.1/resources/binaries/linux/x86_64:${env.PATH}"
-    },
-    "STM32VSCodeExtension.cubeCLT.path": "/home/juroland/st/stm32cubeclt_1.19.0",
-    "STM32VSCodeExtension.projectCreator.executablePath": "/home/juroland/st/STM32CubeMX/STM32CubeMX",
     "[dockercompose]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -339,16 +267,153 @@
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "chat.agent.maxRequests": 200,
-    "remote.SSH.useExecServer": false,
-    "terminal.integrated.suggest.enabled": false,
-    "files.associations": {
-        ".env*": "dotenv"
+    // ============================================================
+    // PYTHON SETTINGS
+    // ============================================================
+    "python.venvPath": "~/.virtualenvs",
+    "python.analysis.logLevel": "Error",
+    "python.languageServer": "Pylance",
+    "python.analysis.exclude": [
+        "**"
+    ],
+    "python.analysis.indexing": false,
+    "python.analysis.diagnosticMode": "openFilesOnly",
+    // ============================================================
+    // RUST SETTINGS
+    // ============================================================
+    "rust-analyzer.inlayHints.typeHints.hideInferredTypes": true,
+    "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": true,
+    "rust-analyzer.inlayHints.typeHints.hideClosureParameter": true,
+    "rust-analyzer.inlayHints.typeHints.hideClosureInitialization": true,
+    "rust-analyzer.inlayHints.typeHints.enable": false,
+    // ============================================================
+    // GIT & SOURCE CONTROL
+    // ============================================================
+    "git.autofetch": true,
+    "git.autorefresh": true,
+    "git.ignoreLimitWarning": true,
+    "git.blame.editorDecoration.enabled": false,
+    "git.blame.statusBarItem.enabled": false,
+    "githubPullRequests.pullBranch": "never",
+    // ============================================================
+    // GITLENS SETTINGS
+    // ============================================================
+    "gitlens.statusBar.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.enabled": false,
+    "gitlens.keymap": "alternate",
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
     },
+    // ============================================================
+    // GITHUB & AI FEATURES
+    // ============================================================
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
     },
+    "github.copilot.nextEditSuggestions.enabled": false,
+    // ============================================================
+    // SPELL CHECK
+    // ============================================================
+    "cSpell.language": "en,en-US,fr",
+    "cSpell.userWords": [
+        "beamformer",
+        "classifieur",
+        "Classifieur",
+        "dataframe",
+        "discretization",
+        "regexes"
+    ],
+    // ============================================================
+    // EXTENSION SETTINGS: Other
+    // ============================================================
+    "autoDocstring.docstringFormat": "google",
+    "color-picker.languages": [
+        "javascript",
+        "typescript"
+    ],
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "extensions.ignoreRecommendations": true,
+    "inlineChat.holdToSpeech": false,
+    "chat.agent.maxRequests": 200,
+    // ============================================================
+    // BUILD & DEVELOPMENT TOOLS
+    // ============================================================
+    "cmake.configureOnOpen": true,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "gopls": {
+        "ui.semanticTokens": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.go$",
+                "cmd": "golines ${file} -m 88 -w"
+            }
+        ]
+    },
+    // ============================================================
+    // ESP-IDF (ESP32 Development)
+    // ============================================================
+    "idf.espIdfPath": "/home/juroland/esp/esp-idf",
+    "idf.toolsPath": "/home/juroland/.espressif",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/juroland/.espressif/tools/esp-rom-elfs/20240305/"
+    },
+    "idf.gitPath": "git",
+    "idf.pythonInstallPath": "/usr/bin/python3",
+    "idf.showOnboardingOnInit": false,
+    "idf.hasWalkthroughBeenShown": true,
+    // ============================================================
+    // DATABASE & SERVICES
+    // ============================================================
+    "docker.extension.enableComposeLanguageServer": false,
+    "playwright.reuseBrowser": true,
+    "remote.SSH.useExecServer": false,
+    "chat.tools.terminal.autoApprove": {
+        "uv": true
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "[mdx]": {
+        "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+    }
 }
