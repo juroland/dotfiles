@@ -79,6 +79,7 @@ export PATH=$HOME/Bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$HOME/Projects/lib
 export GOPATH=~/Repositories/gowork
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin:$HOME/.npm/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 export TERM=xterm-256color
 
@@ -145,21 +146,33 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 source /etc/profile.d/virtualenvwrapper.sh
 
-unalias cp
-. "/home/juroland/.deno/env"
-. /home/juroland/.zshenv
+source ~/export-esp.sh
 
+unalias cp
+
+. "$HOME/.deno/env"
+. "$HOME/.zshenv"
 . "$HOME/.atuin/bin/env"
+. "$HOME/.aliases.work"
 
 eval "$(atuin init zsh --disable-up-arrow)"
 
-. /home/juroland/.aliases.work
 
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
-export PATH="/home/juroland/.local/bin:$PATH"
-export IDF_PATH="/home/juroland/.espressif/v6.0.1/esp-idf"
+export PATH="$HOME/.local/bin:$PATH"
+export IDF_PATH="$HOME/.espressif/v6.0.2/esp-idf"
 
 setopt extendedglob
 
 export KUBECONFIG=~/.kube/config-super6c
+
+# opencode
+export PATH="$HOME/.opencode/bin":$PATH
+
+# === OmniRoute Configuration for Claude Code CLI ===
+export ANTHROPIC_BASE_URL=http://localhost:20128
+export ANTHROPIC_API_KEY=omniroute
+export ANTHROPIC_MODEL=auto/best-coding-fast
+export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
+export CLAUDE_CODE_DISABLE_UNKNOWN_MODEL_WINDOW_ENFORCEMENT=1
+# === End OmniRoute Configuration ===
+

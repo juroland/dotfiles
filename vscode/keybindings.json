@@ -72,6 +72,6 @@
     },
     {
         "key": "alt+\\",
-        "command": "editor.action.inlineSuggest.trigger",
-    },
+        "command": "editor.action.inlineSuggest.trigger"
+    }
 ]

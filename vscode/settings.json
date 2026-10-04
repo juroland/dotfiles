@@ -59,7 +59,11 @@
     "workbench.editor.scrollToSwitchTabs": true,
     "workbench.commandPalette.history": 50,
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook"
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.ui": "default",
+        "*.ipynb": "jupyter-notebook",
+        "*.qrc": "qt-core.qrcEditor"
     },
     "window.customTitleBarVisibility": "auto",
     "window.menuBarVisibility": "compact",
@@ -129,12 +133,12 @@
                 [
                     "local code = require('vscode')",
                     "code.action('vscode-neovim.escape')",
-                    "code.action('workbench.action.files.save')",
-                ],
-            ],
-        },
+                    "code.action('workbench.action.files.save')"
+                ]
+            ]
+        }
     },
-    "vscode-neovim.neovimExecutablePaths.linux": "/opt/nvim-linux-x86_64/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "${env:HOME}/.local/bin/nvim",
     "vscode-neovim.afterInitConfig": [
         "set ignorecase"
     ],
@@ -208,6 +212,9 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[mdx]": {
+        "editor.defaultFormatter": "unifiedjs.vscode-mdx"
     },
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -349,6 +356,7 @@
         "typescript"
     ],
     "todo-tree.tree.showScanModeButton": false,
+    "jupyter.askForKernelRestart": false,
     "todo-tree.general.tags": [
         "BUG",
         "HACK",
@@ -364,6 +372,7 @@
         "jupyter-notebook": "left"
     },
     "latex-workshop.view.pdf.viewer": "tab",
+    "python.analysis.typeCheckingMode": "standard",
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },
@@ -373,11 +382,13 @@
     // ============================================================
     // BUILD & DEVELOPMENT TOOLS
     // ============================================================
+    "makefile.configureOnOpen": false,
     "cmake.configureOnOpen": true,
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
+    "cmake.showConfigureWithDebuggerNotification": false,
     "gopls": {
         "ui.semanticTokens": true
     },
@@ -393,13 +404,14 @@
     // ============================================================
     // ESP-IDF (ESP32 Development)
     // ============================================================
-    "idf.espIdfPath": "/home/juroland/esp/esp-idf",
-    "idf.toolsPath": "/home/juroland/.espressif",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "idf.espIdfPath": "${env:HOME}/esp/esp-idf",
+    "idf.toolsPath": "${env:HOME}/.espressif",
     "idf.customExtraVars": {
-        "OPENOCD_SCRIPTS": "/home/juroland/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
-        "ESP_ROM_ELF_DIR": "/home/juroland/.espressif/tools/esp-rom-elfs/20240305/"
+        "OPENOCD_SCRIPTS": "${env:HOME}/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "${env:HOME}/.espressif/tools/esp-rom-elfs/20240305/"
     },
-    "idf.gitPath": "git",
+    "idf.gitPath": "/usr/bin/git",
     "idf.pythonInstallPath": "/usr/bin/python3",
     "idf.showOnboardingOnInit": false,
     "idf.hasWalkthroughBeenShown": true,
@@ -409,11 +421,18 @@
     "docker.extension.enableComposeLanguageServer": false,
     "playwright.reuseBrowser": true,
     "remote.SSH.useExecServer": false,
-    "chat.tools.terminal.autoApprove": {
-        "uv": true
-    },
+    "C_Cpp.intelliSenseEngine": "disabled",
+    // ============================================================
+    // QT SETTINGS
+    // ============================================================
+    "qt-core.qtInstallationRoot": "${env:HOME}/Qt",
+    "qt-core.showWelcomePageOnActivation": false,
+    // ============================================================
+    // AI & CHAT SETTINGS
+    // ============================================================
     "chat.viewSessions.orientation": "stacked",
-    "[mdx]": {
-        "editor.defaultFormatter": "unifiedjs.vscode-mdx"
-    }
+    "claudeCode.hideOnboarding": true,
+    "claudeCode.preferredLocation": "panel",
+    "geminicodeassist.project": "keen-enigma-qbcbf",
+    "omnicopilot.baseUrl": "http://localhost:20128"
 }
